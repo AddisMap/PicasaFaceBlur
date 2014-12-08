@@ -11,9 +11,9 @@ is importing everything
 
 5. Call the program
 
-`java -classpath ".:bin/:commons-cli-1.2.jar:commons-io-2.4.jar" PicasaFaces -folder "/path/to/the/folder/" -output ./OutputFolder -replaceRegex Z: -replacement "" -convert /usr/bin/mogrify
+`java -classpath ".:bin/:commons-cli-1.2.jar:commons-io-2.4.jar" PicasaFaces -folder "/path/to/the/folder/" -output ./OutputFolder -replaceRegex Z: -replacement "" -convert /usr/bin/mogrify`
 
-You might have to adapat replaceRegex and replacement
+You might have to adapat replaceRegex and replacement to map the paths in the picasa database to your system path (in case you are using wine)
 
 
 
