@@ -1,4 +1,4 @@
-# Face Blur tool Based on Picasa
+# Face Blur tool based on Picasa
 
 1. Install Picasa. Can be done using wine on Linux. You also need imagemagick.
 
@@ -9,7 +9,9 @@ is importing everything
 
 4. Mark all faces, select "Move to new person" and create a new person. All the faces can be added to a single person's entry - it does not matter
 
-5. Call the program
+5. Close picasa so the changes are saved
+
+6. Call the program
 
 `java -classpath ".:bin/:commons-cli-1.2.jar:commons-io-2.4.jar" PicasaFaces -folder "/path/to/the/folder/" -output ./OutputFolder -replaceRegex Z: -replacement "" -convert /usr/bin/mogrify`
 
