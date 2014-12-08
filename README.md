@@ -1,4 +1,23 @@
-# PicasaDBReader
+# Face Blur tool Based on Picasa
+
+1. Install Picasa. Can be done using wine on Linux. You also need imagemagick.
+
+2. Import Your Pictures to picasa. This can be done recursivly by selecting the folder which contains your images as the save-to-folder. Then picasa
+is importing everything
+
+3. Wait until picasa recognized the faces
+
+4. Mark all faces, select "Move to new person" and create a new person. All the faces can be added to a single person's entry - it does not matter
+
+5. Call the program
+
+`java -classpath ".:bin/:commons-cli-1.2.jar:commons-io-2.4.jar" PicasaFaces -folder "/path/to/the/folder/" -output ./OutputFolder -replaceRegex Z: -replacement "" -convert /usr/bin/mogrify
+
+You might have to adapat replaceRegex and replacement
+
+
+
+# PicasaDBReader - original Readme
 
 simple tool to read picasa 3.9 database.
 

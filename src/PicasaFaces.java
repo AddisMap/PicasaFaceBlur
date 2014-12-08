@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.io.*;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -23,6 +24,16 @@ public class PicasaFaces {
 	HashMap<String, String> personsId;
 	HashMap<String, ArrayList<Face>> personFaces;
 	HashMap<Long, Image> images;
+
+	public static String strJoin(String[] aArr, String sSep) {
+		  StringBuilder sbStr = new StringBuilder();
+		  for (int i = 0, il = aArr.length; i < il; i++) {
+		      if (i > 0)
+		          sbStr.append(sSep);
+		      sbStr.append(aArr[i]);
+		  }
+		  return sbStr.toString();
+	}
 
 	public PicasaFaces(String folder) {
 		db = new PMPDB(folder);
@@ -239,8 +250,17 @@ public class PicasaFaces {
 						path = "\""+path+"\"";
 						filename = "\""+filename+"\"";
 					}
-					String []cmd = {convert,path, "-crop", f.w+"x"+f.h+"+"+x+"+"+y, filename};
+					String []cmd = {convert, "-region", f.w+"x"+f.h+"+"+x+"+"+y, "-blur", "0.0x10.0", path};
+					//String []cmd = {convert,path, "-crop", f.w+"x"+f.h+"+"+x+"+"+y, filename};
+
+		      System.out.println(strJoin(cmd, " ")); 
 					Process p = Runtime.getRuntime().exec(cmd);
+            BufferedReader in = new BufferedReader(  
+                                new InputStreamReader(p.getErrorStream()));  
+            String line = null;  
+            while ((line = in.readLine()) != null) {  
+                System.out.println(line);  
+            }  
 					p.waitFor();
 				}
 				i++;
